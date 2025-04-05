@@ -1,0 +1,269 @@
+.contact-container {
+    position: relative;
+    width: 100%;
+    padding: 3rem 1rem;
+    z-index: 1;
+    margin-top: -1px;
+}
+
+.contact-container h1 {
+    text-align: center;
+}
+
+.contact-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+    width: 100%;
+    padding: 2.5rem 1rem;
+}
+
+.contact-card {
+    width: min(30rem, calc(100vw - 2.5rem));
+    border-radius: 20px;
+    background-color: transparent; /* Make it fully transparent */
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 1.65rem;
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+    border: 0.1px solid #854CE6;
+    box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+    border-radius: 16px;
+}
+
+.contact-card:hover {
+    background-color: rgb(from var(--bg-sec) r g b / 75%); /* Background appears on hover */
+}
+
+
+.contact-card h1 {
+    text-align: start;
+    font-size: clamp(1.8rem, 10vw - 10px, 2rem);
+}
+
+.contact-card a {
+    color: inherit;
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.socials a {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 15px;
+    background-color: var(--bg-inv);
+    color: var(--bg-pri);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    transition: background-color 0.25s linear, transform 0.25s linear;
+}
+
+.socials a:hover {
+    background-color: color-mix(in lab, var(--bg-inv), currentColor 20%);
+    transform: scale(1.05);
+}
+
+.socials a:active {
+    transform: scale(0.95);
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.email {
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.25s linear;
+}
+
+.email:hover {
+    text-decoration-color: inherit;
+}
+
+.contact-card .resume {
+    width: 100%;
+    padding: 0.75rem 0;
+    background-color: var(--bg-inv);
+    color: var(--bg-pri);
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color 0.25s linear, transform 0.25s linear;
+}
+
+.contact-card .resume:hover {
+    background-color: color-mix(in lab, var(--bg-inv), currentColor 20%);
+}
+
+.contact-card .resume:active {
+    transform: scale(0.95);
+}
+
+.contact-card .download-div {
+    width: 100%;
+    padding: calc(0.75rem - 2px) 0;
+    color: var(--bg-inv);
+    border: 2px solid var(--bg-inv);
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.contact-card .progress-div {
+    position: absolute;
+    top: 0;
+    left: calc(var(--progress) * 1% - 100%);
+    height: 100%;
+    width: 100%;
+    background-color: var(--bg-inv);
+    overflow: hidden;
+    transition: left 0.5s linear;
+}
+
+.contact-card .progress-div::before {
+    counter-reset: download var(--progress);
+    content: counter(download) '%';
+    position: absolute;
+    top: 50%;
+    left: calc(150% - var(--progress) * 1%);
+    transform: translate(-50%, -50%);
+    color: var(--bg-pri);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    transition: left 0.5s linear;
+}
+
+.contact-card .resume-link {
+    display: none;
+}
+
+.earth {
+    height: min(30rem, calc(100vw - 2rem));
+    width: min(30rem, calc(100vw - 2rem));
+    cursor: grab;
+}
+
+.earth:active {
+    cursor: grabbing;
+}
+
+.earth.fade {
+    animation: fadeEarth 5s ease forwards;
+}
+
+@keyframes fadeEarth {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (pointer: coarse) {
+
+    .socials a:hover,
+    .contact-card .resume:hover {
+        background-color: var(--bg-inv);
+        transform: scale(1);
+    }
+
+    .socials a:active,
+    .contact-card .resume:active {
+        background-color: color-mix(in lab, var(--bg-inv), currentColor 20%);
+        transform: scale(0.95);
+    }
+
+    .email:hover {
+        text-decoration-color: transparent;
+    }
+
+    .email:active {
+        text-decoration-color: inherit;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .contact-wrapper {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+}
+
+@media screen and (pointer: coarse) and (max-width: 500px) {
+    .earth {
+        padding: 1.5rem;
+        position: relative;
+    }
+
+    .earth::before,
+    .earth::after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        width: 25%;
+        top: 0;
+    }
+
+    .earth::after {
+        right: 0;
+    }
+
+    .earth::before {
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 425px) {
+
+    .contact-card {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+}
+
+@supports not (text-decoration-color: transparent) {
+    .email {
+        text-decoration-line: none;
+    }
+
+    .email:hover {
+        text-decoration-line: underline;
+    }
+
+    @media (pointer: coarse) {
+        .email:hover {
+            text-decoration-line: none;
+        }
+
+        .email:active {
+            text-decoration-line: underline;
+        }
+    }
+}
