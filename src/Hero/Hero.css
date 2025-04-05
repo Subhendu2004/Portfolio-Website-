@@ -99,7 +99,13 @@
     margin: 1.25rem 0;
     letter-spacing: 1px;
     line-height: 1.25rem;
-    color: #333; /* Dark gray */
+    color: #333; 
+   
+}
+@media screen and (max-width: 949px) {
+    #theme[data-mode=dark] .layer-3 p {
+        color: white;
+    }
 }
 
 .layer-3 .scroll-gif {
@@ -237,3 +243,4 @@
     height: 100%;
     object-fit: cover;
 }
+
