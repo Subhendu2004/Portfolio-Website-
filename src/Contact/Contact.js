@@ -15,7 +15,7 @@ export default function Contact({ visible }) {
         if (ref.current.href) ref.current.click()
         else {
             setDownloading(true)
-            const res = await fetch('./resume/resume.pdf')
+            const res = await fetch('./resume/Subhendu_Das _Resume.pdf')
             const contentLength = parseInt(res.headers.get('Content-Length'))
             const reader = res.body.getReader()
             const chunks = []
