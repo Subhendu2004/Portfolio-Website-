@@ -1,9 +1,9 @@
 {
 	"short_name": "Portfolio",
-	"name": "Prajjwal | Portfolio",
+	"name": "Subhendu | Portfolio",
 	"icons": [
 		{
-			"src": "portfolio.svg",
+			"src": "profile-image.svg",
 			"type": "image/svg+xml",
 			"sizes": "any",
 			"purpose": "any"
@@ -13,5 +13,5 @@
 	"display": "standalone",
 	"theme_color": "#000000",
 	"background_color": "#000000",
-	"description": "Prajjwal Pratap Shah's portfolio website"
+	"description": "Subhendu Das's portfolio website"
 }
